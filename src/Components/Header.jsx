@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useState } from "react";
+import React, { use, useState, useEffect } from "react";
 import { useRef } from "react";
 import Link from "next/link";
 
@@ -8,6 +8,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 import { useSelector, useDispatch } from "react-redux";
 import { changeTheme } from "@/redux/slice/themeSlice";
+
 function Header() {
   const dispatch = useDispatch();
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -17,12 +18,26 @@ function Header() {
     setIsModalOpen(false);
     setClick(!click);
   };
-  const handleCloseMenu = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-  document.addEventListener("scroll", () => {
-    setIsModalOpen(false);
-  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsModalOpen(false);
+    };
+
+    if (typeof window !== "undefined") {
+      // Chỉ add event listener khi đang chạy trên client-side
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      // Cleanup event listener khi component bị unmount
+      window.removeEventListener("scroll", handleScroll);
+    };
+    document.addEventListener("scroll", () => {
+      setIsModalOpen(false);
+    });
+  }, []);
+
   function handleSetTheme() {
     dispatch(changeTheme());
   }
@@ -30,8 +45,8 @@ function Header() {
     <header className="w-full sm:px-4 lg:px-24 py-5  bg-[rgba(30,29,29,0.9)] fixed z-20 ">
       <div className="  relative sm:flex md:grid grid-cols-12 items-center  justify-between text-white">
         <button
-          onClick={handleCloseMenu}
-          className="md:hidden  gird place-items-center"
+          onClick={handleClick}
+          className="md:hidden grid place-items-center"
         >
           {isModalOpen ? (
             <i className="fa-solid fa-xmark"></i>
@@ -39,7 +54,6 @@ function Header() {
             <i className="fa-solid fa-bars"></i>
           )}
         </button>
-
         <div className="col-span-2 logo text-2xl font-bold">
           <span className="text-orange-400">S</span>TRAVEL
         </div>
