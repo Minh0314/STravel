@@ -1,7 +1,13 @@
 import { Link as ScrollLink } from "react-scroll";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   const backgroundImageUrl = "@/public/hehe.jpeg";
   const [click, setClick] = useState(false);
@@ -22,7 +28,9 @@ const Footer = () => {
         }}
       >
         <h1
-          className={`text-4xl font-bold ${darkTheme} ? "text-white" : "text-black"`}
+          className={`text-4xl font-bold ${
+            darkTheme ? "text-white" : "text-black"
+          }`}
         >
           Bắt Đầu Chuyến Đi Của Bạn
         </h1>
@@ -56,24 +64,34 @@ const Footer = () => {
               Trải Qua 17 Năm Phát Triển Bền Vững, STravel Đã Ghi Dấu Ấn Của
               Mình.
             </p>
-            <p className="mt-2">"Nâng Tầm Trải Nghiệm Từng Chuyến Đi"</p>
+            <p className="mt-2">
+              &quot;Nâng Tầm Trải Nghiệm Từng Chuyến Đi&quot;
+            </p>
             <div className="share flex space-x-4 mt-4">
               <a
                 href="#"
-                className="fab fa-facebook-f border border-orange-400 w-[10%] p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
-              ></a>
+                className="border border-orange-400 w-[10%] p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
+              >
+                <FontAwesomeIcon icon={faFacebook} />
+              </a>
               <a
                 href="#"
-                className="fab fa-twitter border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
-              ></a>
+                className=" border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
+              >
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
               <a
                 href="#"
-                className="fab fa-instagram border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
-              ></a>
+                className=" border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
               <a
                 href="#"
-                className="fab fa-linkedin border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
-              ></a>
+                className=" border border-orange-400 p-4 text-center rounded-full flex items-center justify-center text-orange-400 hover:text-orange-500"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
             </div>
           </div>
 

@@ -2,8 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons";
+library.add(faStar);
+
 function Sale() {
   const listCountries = useSelector((state) => state.preferential.countries);
   const newListCountries = listCountries.slice(0, 4);
@@ -27,21 +35,27 @@ function Sale() {
     });
   }
 
-  function StarRating({ star }) {
-    const totalStars = 5;
+  function StarRating(star) {
+    const totalStars = 5; // Tổng số sao tối đa
 
     const renderStars = () => {
       const stars = [];
 
+      // Render sao đã tô màu
       for (let i = 0; i < star; i++) {
         stars.push(
-          <i key={i} className="text-orange-400 fa-solid fa-star"></i>
+          <FontAwesomeIcon icon={faStar} className="text-orange-400" key={i} />
         );
       }
 
+      // Render sao chưa tô màu
       for (let i = star; i < totalStars; i++) {
         stars.push(
-          <i key={i} className="text-orange-400 fa-regular fa-star"></i>
+          <FontAwesomeIcon
+            icon={faRegularStar}
+            key={i}
+            className="text-orange-400"
+          />
         );
       }
 
@@ -93,23 +107,32 @@ function Sale() {
               variants={bottom}
             >
               <div className="p-3 shadow-lg">
-                <img
+                <Image
                   className="h-72 w-full object-cover rounded-xl"
                   src={item.img[0].url}
-                  alt=""
+                  alt="detail"
+                  objectFit="cover"
+                  width={1200}
+                  height={1000}
+                  priority={true}
                 />
-                <div className="flex flex-col gap-2 pb-3">
+
+                <div className="flex flex-col gap-2 pb-3 mt-3">
                   <div
                     className={`text-xl font-medium ${
                       darkTheme ? "text-orange-400" : ""
                     }`}
                   >
-                    <i className="text-orange-400 fa-solid fa-location-dot"></i>{" "}
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className=" text-orange-400"
+                    />
                     {item.name}
                   </div>
                   <span className="text-gray-500 text-lg">{item.title}</span>
                   <span className="text-gray-500 text-lg">{item.tour}</span>
-                  <StarRating star={item.star} />
+
+                  {StarRating(item.star)}
                   <span
                     className={`text-xl ${darkTheme ? "text-orange-400" : ""}`}
                   >
@@ -138,26 +161,32 @@ function Sale() {
               variants={bottom}
             >
               <div key={index} className="p-3 shadow-lg">
-                <img
+                <Image
                   className="h-80 w-full object-cover rounded-xl"
                   src={item.img[1].url}
                   alt=""
+                  objectFit="cover"
+                  width={1200}
+                  height={1000}
+                  priority={true}
                 />
-
                 <div className="flex flex-col gap-2 pb-3">
                   <div
                     className={`text-xl font-medium ${
                       darkTheme ? "text-orange-400" : ""
                     }`}
                   >
-                    <i className="text-orange-400 fa-solid fa-location-dot"></i>{" "}
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      className=" text-orange-400"
+                    />
                     {item.name}
                   </div>
                   <span className="text-gray-500 text-lg h-4">
                     {item.title}
                   </span>
                   <span className="text-gray-500 text-lg">{item.tour}</span>
-                  <StarRating star={item.star} />
+                  {StarRating(item.star)}
                   <span
                     className={`text-xl ${darkTheme ? "text-orange-400" : ""}`}
                   >

@@ -34,7 +34,7 @@ function About() {
   return (
     <div
       id="about"
-      className={`my-16 flex flex-row justify-center w-full ${
+      className={`my-32 flex flex-row justify-center w-full ${
         darkTheme ? "bg-black" : "bg-white"
       }`}
     >

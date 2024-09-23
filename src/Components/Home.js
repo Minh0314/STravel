@@ -14,7 +14,7 @@ import {
   scrollSpy,
 } from "react-scroll";
 import { Pagination } from "swiper/modules";
-
+import Image from "next/image";
 function MyHome() {
   const homeRef = useRef(null);
   const preferentialRef = useRef(null);
@@ -26,7 +26,6 @@ function MyHome() {
     setClick(false);
   };
   const listVid = useSelector((state) => state.logo.video);
- 
 
   return (
     <div id="/" className="">
@@ -55,11 +54,15 @@ function MyHome() {
         </Swiper>
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center z-10">
-        <span className=" sm:xl md:2xl lg:3xl xl:text-5xl font-bold pb-5">MỌI CHUYẾN ĐI ĐỀU ĐÁNG GIÁ</span>
+        <span className=" sm:xl md:2xl lg:3xl xl:text-5xl font-bold pb-5">
+          MỌI CHUYẾN ĐI ĐỀU ĐÁNG GIÁ
+        </span>
         <p className="text-3xl pb-5">
           Khám Phá Các Vùng Đất Mới Cùng Chúng Tôi
         </p>
-        <p className="sm:text-lg md:text-xl lg:text-2xl pb-5">Những Chuyến Đi Đang Chờ Bạn</p>
+        <p className="sm:text-lg md:text-xl lg:text-2xl pb-5">
+          Những Chuyến Đi Đang Chờ Bạn
+        </p>
         <button className="w-52 h-12 bg-orange-400 rounded-xl hover:bg-transparent hover:border-2 hover:border-orange-400 hover:font-bold hover:text-orange-300">
           <Link
             activeClass=""

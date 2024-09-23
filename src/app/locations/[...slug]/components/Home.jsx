@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import Image from "next/image";
 const Home = ({ data }) => {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
 
@@ -17,11 +18,16 @@ const Home = ({ data }) => {
       }`}
     >
       <div className="relative  h-auto min-h-[400px]">
-        <img
-          src={data?.img[1].url}
-          alt=""
-          className="w-full h-full object-cover h-auto rounded-xl"
-        />
+        <div className="relative w-screen h-[1000px] ">
+          <Image
+            src={data?.img[1].url}
+            alt="home-img"
+            className="object-cover rounded-xl"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
         <div className="absolute inset-0 bg-gray-800 bg-opacity-60 rounded-xl"></div>
         <div className="content absolute inset-0 flex items-center justify-center text-center flex-col gap-16">
           <span

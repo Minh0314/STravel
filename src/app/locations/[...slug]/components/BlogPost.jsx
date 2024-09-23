@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faUser, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 function BlogPost({ data }) {
   const listCountries = useSelector((state) => state.preferential.countries);
 
@@ -57,11 +61,15 @@ function BlogPost({ data }) {
               variants={scale}
             >
               <div className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 ">
-                <img
+                <Image
                   src={item?.img}
                   alt={item?.img}
+                  width={0}
+                  height={0}
+                  layout="responsive"
                   className="w-full h-40 object-cover rounded-xl"
                 />
+
                 <div className="px-4 py-4 flex flex-col gap-2">
                   <span className="text-xl text-orange-400 font-semibold nunito">
                     {item.title}
@@ -69,13 +77,17 @@ function BlogPost({ data }) {
                   <p className="text-gray-500 text-sm">{item.content}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-500 text-sm">
-                      {" "}
-                      <i className="fa-regular fa-calendar-days text-orange-400 mr-2"></i>
+                      <FontAwesomeIcon
+                        icon={faCalendarDays}
+                        className="text-orange-400 mr-2"
+                      />
                       {item.time}
                     </span>
                     <span className="text-gray-500 text-sm">
-                      {" "}
-                      <i className="fa-solid fa-user text-orange-400 mr-2"></i>{" "}
+                      <FontAwesomeIcon
+                        icon={faUser}
+                        className="text-orange-400 mr-2"
+                      />
                       {item.by}
                     </span>
                   </div>

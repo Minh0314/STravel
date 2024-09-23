@@ -2,6 +2,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBed,
+  faUtensils,
+  faBullhorn,
+  faEarthAmericas,
+  faP,
+  faPlane,
+  faHiking,
+} from "@fortawesome/free-solid-svg-icons";
 function Service() {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const bottom = {
@@ -47,7 +58,12 @@ function Service() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200">
-              <i className=" fa-solid fa-bed text-5xl text-orange-400 "></i>
+              {/* <i className=" fa-solid fa-bed text-5xl text-orange-400 "></i> */}
+
+              <FontAwesomeIcon
+                icon={faBed}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""
@@ -58,7 +74,10 @@ function Service() {
               <span className="text-gray-500">Some Text...</span>
             </div>
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200">
-              <i className="fa-solid fa-utensils text-5xl text-orange-400"></i>
+              <FontAwesomeIcon
+                icon={faUtensils}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""
@@ -69,7 +88,10 @@ function Service() {
               <span className="text-gray-500">Some Text...</span>
             </div>
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200">
-              <i className="fa-solid fa-bullhorn text-5xl text-orange-400"></i>
+              <FontAwesomeIcon
+                icon={faBullhorn}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""
@@ -80,7 +102,10 @@ function Service() {
               <span className="text-gray-500">Some Text...</span>
             </div>
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200">
-              <i className="fa-solid fa-earth-americas text-5xl text-orange-400"></i>
+              <FontAwesomeIcon
+                icon={faEarthAmericas}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""
@@ -91,7 +116,10 @@ function Service() {
               <span className="text-gray-500">Some Text...</span>
             </div>
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 xl:col-span-2">
-              <i className="fa-solid fa-plane text-5xl text-orange-400"></i>
+              <FontAwesomeIcon
+                icon={faPlane}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""
@@ -102,7 +130,10 @@ function Service() {
               <span className="text-gray-500">Some Text...</span>
             </div>
             <div className="flex flex-col gap-3 items-center hover:shadow-md p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 xl:col-span-2">
-              <i className="fas fa-hiking text-5xl text-orange-400"></i>
+              <FontAwesomeIcon
+                icon={faHiking}
+                className="text-5xl text-orange-400"
+              />
               <span
                 className={`text-2xl font-medium ${
                   darkTheme ? "text-orange-400" : ""

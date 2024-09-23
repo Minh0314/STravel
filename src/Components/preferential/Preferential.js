@@ -1,7 +1,7 @@
 "use client";
 import FormContact from "@/Components/contact/FormContact";
 import { useSelector } from "react-redux";
-
+import Image from "next/image";
 function PreferentialPage() {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
 
@@ -79,12 +79,18 @@ function PreferentialPage() {
           </span>
         </div>
         <div className="row flex flex-col sm:flex-col md:flex-col lg:flex-row items-center justify-center">
-          <div className="w-6/12 ">
-            <img
-              className="image"
-              src="https://code-fullstack-exercise49.vercel.app/images/book-img.svg"
-              alt="test"
-            />
+          <div className="w-6/12  h-full">
+            <div className=" w-full h-full">
+              <Image
+                src="https://code-fullstack-exercise49.vercel.app/images/book-img.svg"
+                alt="detail"
+                className="object-cover"
+                objectFit="cover"
+                width={1200}
+                height={1000}
+                priority={true}
+              />
+            </div>
           </div>
           <div className=" w-full  mt-20 sm:w-ful ">
             <FormContact darkTheme={darkTheme}></FormContact>

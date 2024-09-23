@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Image from "next/image";
 function FeedBack() {
   const user = useSelector((state) => state.users.users);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -60,11 +61,15 @@ function FeedBack() {
                         darkTheme ? "text-gray-400" : "text-black"
                       }`}
                     >
-                      <img
+                      <Image
                         src={item?.avatar}
                         className="w-14 h-14 object-cover rounded-full "
-                        alt=""
+                        alt="avatar"
+                        width={500}
+                        height={300}
+                        layout="fixed"
                       />
+
                       <span className=" text-back text-lg font-medium nunito">
                         {item?.name}
                       </span>

@@ -5,11 +5,15 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { faStar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 function FeedBack() {
   const users = useSelector((state) => state.users.users);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -23,20 +27,26 @@ function FeedBack() {
       // Render filled stars
       for (let i = 0; i < star; i++) {
         stars.push(
-          <i
+          <FontAwesomeIcon
+            icon={faStar}
+            className={`text-orange-400 mr-2 text-${size}`}
             key={i}
-            className={`text-${size} text-orange-400 fa-solid fa-star mr-2`}
-          ></i>
+          />
         );
       }
 
       // Render unfilled stars
       for (let i = star; i < totalStars; i++) {
         stars.push(
-          <i
+          // <i
+          //   key={i}
+          //   className={`text-${size}  text-orange-400 fa-regular fa-star mr-2`}
+          // ></i>
+          <FontAwesomeIcon
+            icon={faRegularStar}
+            className={`text-orange-400 mr-2 text-${size}`}
             key={i}
-            className={`text-${size}  text-orange-400 fa-regular fa-star mr-2`}
-          ></i>
+          />
         );
       }
 
@@ -115,11 +125,18 @@ function FeedBack() {
               return (
                 <SwiperSlide key={index}>
                   <div className="w-full h-80  shadow-xl py-5 px-9 flex flex-col items-center m-5 ">
-                    <img
-                      className="rounded-full h-5/12"
-                      src={item.avatar}
-                      alt="user"
-                    />
+                    <div className="flex sm:flex-row md:flex-col">
+                      <Image
+                        className="rounded-full"
+                        src={item.avatar}
+                        alt="user"
+                        width={100}
+                        height={100}
+                        objectFit="cover"
+                        layout="intrinsic" //  layout="fixed"
+                      />
+                    </div>
+
                     <div className="text-xl font-semibold h-2/5">
                       {item.name}
                     </div>
@@ -134,29 +151,6 @@ function FeedBack() {
               );
             })}
           </Swiper>
-
-          {/* <div
-            className="flex transition-transform duration-1000 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / 3)}%)`,
-            }}
-          >
-            {getVisibleUsers().map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className="w-4/12 flex-shrink-0 shadow-lg p-3 flex flex-col items-center"
-                >
-                  <img src={item.avatar} alt="user" />
-                  <div className="text-xl font-semibold">{item.name}</div>
-                  <div className="text-center text-gray-500">
-                    {item.comment}
-                  </div>
-                  <div>{StarRating(item.star)}</div>
-                </div>
-              );
-            })}
-          </div> */}
         </div>
       </div>
     </div>

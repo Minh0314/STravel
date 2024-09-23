@@ -2,6 +2,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons";
+library.add(faStar);
+
 function ForYou() {
   const dispatch = useDispatch();
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -27,14 +35,19 @@ function ForYou() {
       // Render sao đã tô màu
       for (let i = 0; i < star; i++) {
         stars.push(
-          <i key={i} className="text-orange-400 fa-solid fa-star"></i>
+          <FontAwesomeIcon icon={faStar} className="text-orange-400" key={i} />
         );
       }
 
       // Render sao chưa tô màu
       for (let i = star; i < totalStars; i++) {
         stars.push(
-          <i key={i} className="text-orange-400 fa-regular fa-star"></i>
+          <FontAwesomeIcon
+            icon={faRegularStar}
+            key={i}
+            className="text-orange-400"
+          />
+          // <i key={i} className="text-orange-400 fa-regular fa-star"></i>
         );
       }
 
@@ -83,7 +96,14 @@ function ForYou() {
         >
           <div className="detail  w-12/12 mx-auto max-h-60 overflow-hidden p-2">
             <div className="mx-auto  w-full">
-              <img className="object-cover  w-full" src={img[0].url} alt="" />
+              <Image
+                src={img[0].url}
+                alt="detail"
+                className="object-cover rounded-xl"
+                width={1600}
+                height={700}
+                layout="intrinsic"
+              />
             </div>
           </div>
         </motion.div>
@@ -99,13 +119,14 @@ function ForYou() {
         >
           <div className="desc flex flex-col gap-2 p-5">
             <div className="flex gap-2 items-center">
-              <i className=" text-orange-400 fa-solid fa-location-dot"></i>
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                className=" text-orange-400"
+              />
               <span className="text-xl font-medium"> {name}</span>
             </div>
             <span className="text-gray-500 text-lg">{title}</span>
-            <span className="text-gray-500 text-lg">
-              {/* Ưu Đãi {price.toLocaleString()} {tour} */}
-            </span>
+            <span className="text-gray-500 text-lg"></span>
             <span>{StarRating(star)}</span>
             <button className="w-40 h-10 bg-orange-400 text-white rounded">
               <Link href={"/locations/ha-noi"}>Đặt ngay</Link>

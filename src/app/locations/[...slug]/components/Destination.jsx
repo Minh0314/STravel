@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Image from "next/image";
 function Destination({ data }) {
   const listCountries = useSelector((state) => state.preferential.countries);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -40,11 +41,15 @@ function Destination({ data }) {
                 variants={bottom}
               >
                 <div key={item.name}>
-                  <img
+                  <Image
                     src={item?.img[2].url}
                     alt={item.name}
                     className="w-full h-40 object-cover rounded-xl"
+                    width={500}
+                    height={300}
+                    layout="fixed"
                   />
+
                   <div className="px-4 py-4">
                     <span
                       className={`text-lg font-semibold nunito ${

@@ -7,10 +7,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import img1 from "../../assets/img1.jpg";
-
+import Image from "next/image";
 function Logo() {
   const listLogo = useSelector((state) => state.logo.logo);
-  
 
   return (
     <div className="form-user">
@@ -30,7 +29,14 @@ function Logo() {
           return (
             <SwiperSlide key={index}>
               <div className="w-full  py-5 px-9 flex flex-col items-center m-5 ">
-                <img className=" h-5/12" src={item.url} alt="logo" />
+                <Image
+                  src={item.url}
+                  width={5}
+                  height={12}
+                  layout="responsive"
+                  className="h-5/12"
+                  alt="brand logo"
+                />
               </div>
             </SwiperSlide>
           );

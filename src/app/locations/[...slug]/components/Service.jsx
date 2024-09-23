@@ -1,5 +1,17 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBed,
+  faUtensils,
+  faEarthAmericas,
+  faHiking,
+  faHotel,
+  faWallet,
+  faHeadphonesSimple,
+} from "@fortawesome/free-solid-svg-icons";
+
 function Service() {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const scale = {
@@ -10,32 +22,32 @@ function Service() {
     {
       title: "Rộng Khắp Thế Giới",
       description: "Some Text...",
-      icon: "fa-solid fa-earth-americas",
+      icon: faEarthAmericas,
     },
     {
       title: "Những Cuộc Phưu Lưu",
       description: "Some Text...",
-      icon: "fas fa-hiking",
+      icon: faHiking,
     },
     {
       title: "Dịch Vụ Ăn Uống",
       description: "Some Text...",
-      icon: "fa-solid fa-utensils",
+      icon: faUtensils,
     },
     {
       title: "Nghỉ Dưỡng Cao Cấp",
       description: "Some Text...",
-      icon: "fa-solid fa-bed",
+      icon: faHotel,
     },
     {
       title: "Giá Tốt Nhất",
       description: "Some Text...",
-      icon: "fa-solid fa-bed",
+      icon: faWallet,
     },
     {
       title: " Hỗ Trợ 24/7",
       description: "Some Text...",
-      icon: "fa-solid fa-bed",
+      icon: faHeadphonesSimple,
     },
   ];
   return (
@@ -70,9 +82,15 @@ function Service() {
                 className="flex flex-col gap-3 items-center hover:shadow-md p-5 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200
                 border border-solid border-2 border-orange-400 rounded-xl"
               >
-                <i
+                {/* <i
                   className={` ${item.icon} fa-bed text-5xl text-orange-400 `}
-                ></i>
+                ></i> */}
+
+                <FontAwesomeIcon
+                  icon={item.icon}
+                  className="text-5xl text-orange-400"
+                />
+
                 <span
                   className={`text-2xl font-medium ${
                     darkTheme ? "text-white" : "Text-black"

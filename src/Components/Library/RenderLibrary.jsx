@@ -1,6 +1,6 @@
 "use client";
 import { useSelector } from "react-redux";
-
+import Image from "next/image";
 function RenderLibrary() {
   const listCountries = useSelector((state) => state.preferential.countries);
 
@@ -13,10 +13,14 @@ function RenderLibrary() {
               key={index}
               className="relative overflow-hidden rounded-lg shadow-lg h-64 group"
             >
-              <img
+              <Image
                 src={item.img[2].url}
                 alt={`Gallery image ${index + 1}`}
                 className="relative object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
+                objectFit="cover"
+                width={1200}
+                height={1000}
+                priority={true}
               />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
