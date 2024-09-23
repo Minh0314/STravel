@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
+
 import {
   faBed,
   faUtensils,

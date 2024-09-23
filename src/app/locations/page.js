@@ -1,7 +1,5 @@
-import React from "react";
-
 function page() {
-  return <div className="pt-20"></div>;
+  return <div></div>;
 }
 
 export default page;

@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faUser, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 function BlogPost({ data }) {
-  const listCountries = useSelector((state) => state.preferential.countries);
-
   const scale = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1 },

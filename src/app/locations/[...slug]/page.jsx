@@ -29,7 +29,7 @@ function Page({ params }) {
       setLocationData(foundLocation);
       dispatch(hideLoading());
     }
-  }, [listLocation, slug]);
+  }, [listLocation, slug, dispatch]);
 
   if (isLoading) {
     return <ReactLoading type={"spin"} color={"#000"} height={70} width={70} />;

@@ -2,12 +2,12 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import React, { useRef, useState } from "react";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { faStar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons";
-// Import Swiper styles
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -19,12 +19,11 @@ function FeedBack() {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
 
   function StarRating(star, size) {
-    const totalStars = 5; // Total maximum stars
+    const totalStars = 5;
 
     const renderStars = () => {
       const stars = [];
 
-      // Render filled stars
       for (let i = 0; i < star; i++) {
         stars.push(
           <FontAwesomeIcon
@@ -35,13 +34,8 @@ function FeedBack() {
         );
       }
 
-      // Render unfilled stars
       for (let i = star; i < totalStars; i++) {
         stars.push(
-          // <i
-          //   key={i}
-          //   className={`text-${size}  text-orange-400 fa-regular fa-star mr-2`}
-          // ></i>
           <FontAwesomeIcon
             icon={faRegularStar}
             className={`text-orange-400 mr-2 text-${size}`}

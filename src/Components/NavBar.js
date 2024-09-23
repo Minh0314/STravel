@@ -28,9 +28,7 @@ function NavBar() {
   const handleCloseMenu = () => {
     setIsModalOpen(!isModalOpen);
   };
-  // document.addEventListener("scroll", () => {
-  //   setIsModalOpen(false);
-  // });
+
   function handleSetTheme() {
     dispatch(changeTheme());
   }

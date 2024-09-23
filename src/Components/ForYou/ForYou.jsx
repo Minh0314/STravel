@@ -47,7 +47,6 @@ function ForYou() {
             key={i}
             className="text-orange-400"
           />
-          // <i key={i} className="text-orange-400 fa-regular fa-star"></i>
         );
       }
 
