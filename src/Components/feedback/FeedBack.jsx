@@ -126,8 +126,6 @@ function FeedBack() {
                         alt="user"
                         width={100}
                         height={100}
-                        objectFit="cover"
-                        layout="intrinsic" //  layout="fixed"
                       />
                     </div>
 

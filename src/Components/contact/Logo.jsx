@@ -33,7 +33,6 @@ function Logo() {
                   src={item.url}
                   width={5}
                   height={12}
-                  layout="responsive"
                   className="h-5/12"
                   alt="brand logo"
                 />

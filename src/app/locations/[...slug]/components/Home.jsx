@@ -23,8 +23,6 @@ const Home = ({ data }) => {
             src={data?.img[1].url}
             alt="home-img"
             className="object-cover "
-            layout="fill"
-            objectFit="cover"
             quality={100}
           />
         </div>

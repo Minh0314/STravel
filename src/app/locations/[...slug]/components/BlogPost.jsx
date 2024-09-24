@@ -64,7 +64,6 @@ function BlogPost({ data }) {
                   alt={item?.img}
                   width={0}
                   height={0}
-                  layout="responsive"
                   className="w-full h-40 object-cover rounded-xl"
                 />
 

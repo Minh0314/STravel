@@ -47,7 +47,6 @@ function Destination({ data }) {
                     className="w-full h-40 object-cover rounded-xl"
                     width={500}
                     height={300}
-                    layout="fixed"
                   />
 
                   <div className="px-4 py-4">

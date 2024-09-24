@@ -85,14 +85,13 @@ function PreferentialPage() {
                 src="https://code-fullstack-exercise49.vercel.app/images/book-img.svg"
                 alt="detail"
                 className="object-cover"
-                objectFit="cover"
                 width={1200}
                 height={1000}
                 priority={true}
               />
             </div>
           </div>
-          <div className=" w-full  mt-20 sm:w-ful ">
+          <div className="w-full  mt-20 sm:w-ful ">
             <FormContact darkTheme={darkTheme}></FormContact>
           </div>
         </div>

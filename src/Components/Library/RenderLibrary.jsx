@@ -26,11 +26,12 @@ function RenderLibrary() {
               <Image
                 src={item.img[2].url}
                 alt={`Gallery image ${index + 1}`}
+                className="relative w-full h-full transform transition-transform duration-300 group-hover:scale-105"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 style={{ objectFit: "cover" }}
+                priority={true}
               />
-
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <span className="text-orange-400 text-xl font-bold mb-2">
                   Ảnh Chụp

@@ -101,7 +101,6 @@ function ForYou() {
                 className="object-cover rounded-xl"
                 width={1600}
                 height={700}
-                layout="intrinsic"
               />
             </div>
           </div>

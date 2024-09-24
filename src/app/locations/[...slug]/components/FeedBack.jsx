@@ -67,7 +67,6 @@ function FeedBack() {
                         alt="avatar"
                         width={500}
                         height={300}
-                        layout="fixed"
                       />
 
                       <span className=" text-back text-lg font-medium nunito">

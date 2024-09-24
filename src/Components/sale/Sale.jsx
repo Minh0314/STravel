@@ -111,7 +111,6 @@ function Sale() {
                   className="h-72 w-full object-cover rounded-xl"
                   src={item.img[0].url}
                   alt="detail"
-                  objectFit="cover"
                   width={1200}
                   height={1000}
                   priority={true}
@@ -165,7 +164,6 @@ function Sale() {
                   className="h-80 w-full object-cover rounded-xl"
                   src={item.img[1].url}
                   alt=""
-                  objectFit="cover"
                   width={1200}
                   height={1000}
                   priority={true}
