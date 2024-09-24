@@ -71,10 +71,12 @@ function Sale() {
 
   return (
     <div
-      className={`pb-18 py-6 px-28 ${darkTheme ? "bg-[#333]" : ""}`}
+      className={` my-32   w-full flex flex-col items-center justify-center ${
+        darkTheme ? "bg-[#333]" : ""
+      }`}
       id="sale"
     >
-      <div>
+      <div className="w-10/12 flex flex-col  ">
         <div className="flex gap-4 items-center justify-center pb-3">
           <span className="text-orange-400 text-3xl font-bold bg-orange-200 w-12 p-2 rounded text-center">
             Ư
