@@ -77,7 +77,7 @@ function Sale() {
       id="sale"
     >
       <div className="w-10/12 flex flex-col  ">
-        <div className="flex gap-4 items-center justify-center pb-3">
+        <div className="flex gap-4 items-center justify-center py-5">
           <span className="text-orange-400 text-3xl font-bold bg-orange-200 w-12 p-2 rounded text-center">
             Ư
           </span>

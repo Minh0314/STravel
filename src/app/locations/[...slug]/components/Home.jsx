@@ -3,13 +3,6 @@ import Image from "next/image";
 const Home = ({ data }) => {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
 
-  //  function formatCurrency(price) {
-  //     return price.toLocaleString("vi-VN", {
-  //       style: "currency",
-  //       currency: "VND",
-  //     });
-  //   }
-
   return (
     <section
       id="home"
@@ -22,8 +15,10 @@ const Home = ({ data }) => {
           <Image
             src={data?.img[1].url}
             alt="home-img"
-            className="object-cover "
+            className="object-cover w-full h-full h-screen"
             quality={100}
+            height={1000}
+            width={2400}
           />
         </div>
         <div className="absolute inset-0 bg-gray-800 bg-opacity-60 rounded-xl"></div>

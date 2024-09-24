@@ -58,9 +58,12 @@ function ForYou() {
 
   return (
     <div
-      className={"pb-48 py-6 px-28 w-full " + (darkTheme ? "bg-[#333]" : "")}
+      className={
+        "my-32 w-full flex flex-col items-center justify-center" +
+        (darkTheme ? "bg-[#333]" : "")
+      }
     >
-      <div className="p-4 shadow-md">
+      <div className="w-10/12 flex flex-col justify-content-center ">
         <div className="flex gap-4 items-center justify-center pb-6">
           <span className="text-orange-400 text-3xl font-bold bg-orange-200 w-12  p-2 rounded text-center ">
             C

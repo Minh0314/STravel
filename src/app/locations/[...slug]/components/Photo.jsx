@@ -43,8 +43,8 @@ function Photo() {
                   src={item?.img[1].url}
                   alt={item?.name}
                   className="w-full h-40 object-cover rounded-xl"
-                  width={0}
-                  height={0}
+                  width={500}
+                  height={300}
                 />
 
                 <div className="px-4 py-4">
