@@ -15,15 +15,20 @@ import Footer from "./components/Footer";
 
 function Page({ params }) {
   const { slug } = params;
-  //redux
   const dispatch = useDispatch();
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const listLocation = useSelector((state) => state.preferential.countries);
   const isLoading = useSelector((state) => state.loading.isLoading);
-
+  // const isLoading = true;
   const [locationData, setLocationData] = useState(null);
+
   useEffect(() => {
+    setTimeout(() => {
+      dispatch(hideLoading());
+    }, 2000);
+
     dispatch(showLoading());
+
     const foundLocation = listLocation.find((item) => item.keyword === slug[0]);
     if (foundLocation) {
       setLocationData(foundLocation);
@@ -32,8 +37,19 @@ function Page({ params }) {
   }, [listLocation, slug, dispatch]);
 
   if (isLoading) {
-    return <ReactLoading type={"spin"} color={"#000"} height={70} width={70} />;
+    return (
+      <div className="flex justify-center items-center h-screen  text-orange-400">
+        <ReactLoading
+          type="spin"
+          width={50}
+          height={50}
+          color="#FFA502"
+          className="text-orange-400"
+        />
+      </div>
+    );
   }
+  console.log(isLoading);
 
   return (
     <div className={`${darkTheme ? "bg-black" : "bg-white"} `}>

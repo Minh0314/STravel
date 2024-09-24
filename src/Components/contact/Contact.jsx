@@ -7,7 +7,7 @@ function Contact() {
 
   return (
     <div
-      className={"pb-20 py-6 px-28 w-full " + (darkTheme ? "bg-[#333]" : "")}
+      className={"pb-10  px-28 w-full " + (darkTheme ? "bg-[#333]" : "")}
       id="contact"
     >
       <div className="p-4 ">

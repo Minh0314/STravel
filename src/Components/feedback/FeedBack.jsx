@@ -109,7 +109,7 @@ function FeedBack() {
             centeredSlides={true}
             loop={true}
             autoplay={{
-              delay: 2000,
+              delay: 1800,
               disableOnInteraction: false,
             }}
             modules={[Autoplay, Navigation]}
@@ -129,7 +129,7 @@ function FeedBack() {
                       />
                     </div>
 
-                    <div className="text-xl font-semibold h-2/5">
+                    <div className="text-xl font-semibold h-2/5 text-white mt-2">
                       {item.name}
                     </div>
                     <div className="text-center text-gray-500 h-1/5">

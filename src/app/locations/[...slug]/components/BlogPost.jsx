@@ -58,12 +58,12 @@ function BlogPost({ data }) {
               transition={{ duration: 0.5 }}
               variants={scale}
             >
-              <div className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 ">
+              <div className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 w-full h-auto ">
                 <Image
                   src={item?.img}
                   alt={item?.img}
-                  width={0}
-                  height={0}
+                  width={400}
+                  height={400}
                   className="w-full h-40 object-cover rounded-xl"
                 />
 

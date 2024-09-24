@@ -52,7 +52,7 @@ function NavBar() {
         <div className="text-2xl font-bold">
           <span className="text-orange-400">S</span>TRAVEL
         </div>
-        <nav className="hidden sm:flex md:flex space-x-4 text-white">
+        <nav className="hidden sm:flex md:flex space-x-4 text-white  gap-3 md:text-lg lg:text-xl ">
           <ScrollLink
             activeClass="active"
             to="/"

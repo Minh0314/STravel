@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
 function Destination({ data }) {
   const listCountries = useSelector((state) => state.preferential.countries);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
@@ -30,45 +32,47 @@ function Destination({ data }) {
         <div className="grid xs:gird-cols-1 sm:gird-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 w-full">
           {listCountries?.slice(5, 15)?.map((item, index) => (
             <div className="shadow-xl py-7" key={index}>
-              <motion.div
-                className={`col-span-1 rounded-xl flex flex-col transition duration-150 ease-linear hover:shadow-2xl ${
-                  darkTheme ? "bg-gray-800" : "bg-white"
-                }`}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                variants={bottom}
-              >
-                <div key={item.name}>
-                  <Image
-                    src={item?.img[2].url}
-                    alt={item.name}
-                    className="w-full h-40 object-cover rounded-xl"
-                    width={500}
-                    height={300}
-                  />
+              <Link href={`/locations/${item.keyword}`}>
+                <motion.div
+                  className={`col-span-1 rounded-xl flex flex-col transition duration-150 ease-linear hover:shadow-2xl ${
+                    darkTheme ? "bg-gray-800" : "bg-white"
+                  }`}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  variants={bottom}
+                >
+                  <div key={item.name}>
+                    <Image
+                      src={item?.img[2].url}
+                      alt={item.name}
+                      className="w-full h-40 object-cover rounded-xl"
+                      width={500}
+                      height={300}
+                    />
 
-                  <div className="px-4 py-4">
-                    <span
-                      className={`text-lg font-semibold nunito ${
-                        darkTheme ? "text-white" : "text-black"
-                      }`}
-                    >
-                      {item.name}
-                    </span>
-                    <p className="text-gray-500 text-sm">
-                      {truncateText(item.desc, 20)}
-                    </p>
+                    <div className="px-4 py-4">
+                      <span
+                        className={`text-lg font-semibold nunito ${
+                          darkTheme ? "text-white" : "text-black"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                      <p className="text-gray-500 text-sm">
+                        {truncateText(item.desc, 20)}
+                      </p>
+                    </div>
+                    <div className="flex justify-end px-4 py-2">
+                      <button className="text-orange-400">
+                        Đọc Thêm{" "}
+                        <i className="fa-solid fa-chevron-right font-bold"></i>
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex justify-end px-4 py-2">
-                    <button className="text-orange-400">
-                      Đọc Thêm{" "}
-                      <i className="fa-solid fa-chevron-right font-bold"></i>
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             </div>
           ))}
         </div>

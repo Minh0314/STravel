@@ -19,7 +19,7 @@ function Logo() {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 1800,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation]}
@@ -28,12 +28,12 @@ function Logo() {
         {listLogo.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="w-full  py-5 px-9 flex flex-col items-center m-5 ">
+              <div className="w-full  py-5 px-9 flex flex-col items-center m-5 rounded-xl ">
                 <Image
                   src={item.url}
-                  width={5}
-                  height={12}
-                  className="h-5/12"
+                  width={400}
+                  height={400}
+                  className="h-5/12 rounded-xl "
                   alt="brand logo"
                 />
               </div>
