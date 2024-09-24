@@ -62,7 +62,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Trang chủ
@@ -76,7 +76,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Đặt Lịch
@@ -91,7 +91,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Ưu Đãi
@@ -105,7 +105,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Dịch Vụ
@@ -119,7 +119,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Thư Viện
@@ -133,7 +133,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Đánh Giá
@@ -147,7 +147,7 @@ function NavBar() {
             offset={-70}
             className={`cursor-pointer ${
               darkTheme ? "text-white" : ""
-            } hover:text-gray-900`}
+            } hover:text-orange-400`}
             onClick={handleClick}
           >
             Liên Hệ
