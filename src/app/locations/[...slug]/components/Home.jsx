@@ -12,14 +12,17 @@ const Home = ({ data }) => {
     >
       <div className="relative  h-auto min-h-[400px]">
         <div className="relative w-screen h-[1000px] ">
-          <Image
-            src={data?.img[1].url}
-            alt="home-img"
-            className="object-cover w-full h-full h-screen"
-            quality={100}
-            height={1000}
-            width={2400}
-          />
+          {data?.img && data.img[1] && (
+            <Image
+              src={data.img[1].url}
+              alt="home-img"
+              className="object-cover w-full h-full h-screen"
+              quality={100}
+              height={1000}
+              width={2400}
+              priority
+            />
+          )}
         </div>
         <div className="absolute inset-0 bg-gray-800 bg-opacity-60 rounded-xl"></div>
         <div className="content absolute inset-0 flex items-center justify-center text-center flex-col gap-16">

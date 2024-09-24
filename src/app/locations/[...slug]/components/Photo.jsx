@@ -5,7 +5,7 @@ import Image from "next/image";
 function Photo() {
   const listCountries = useSelector((state) => state.preferential.countries);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
-  console.log(listCountries);
+
   const bottom = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },

@@ -4,7 +4,7 @@ import Image from "next/image";
 function FeedBack() {
   const user = useSelector((state) => state.users.users);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
-  console.log(user);
+
   const scale = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1 },

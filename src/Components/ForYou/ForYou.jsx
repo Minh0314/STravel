@@ -104,6 +104,7 @@ function ForYou() {
                 className="object-cover rounded-xl"
                 width={1600}
                 height={700}
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           </div>

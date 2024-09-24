@@ -49,7 +49,6 @@ function Page({ params }) {
       </div>
     );
   }
-  console.log(isLoading);
 
   return (
     <div className={`${darkTheme ? "bg-black" : "bg-white"} `}>
