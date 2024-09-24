@@ -13,7 +13,7 @@ function RenderLibrary() {
               key={index}
               className="relative overflow-hidden rounded-lg shadow-lg h-64 group"
             >
-              <Image
+              {/* <Image
                 src={item.img[2].url}
                 alt={`Gallery image ${index + 1}`}
                 className="relative object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
@@ -21,6 +21,14 @@ function RenderLibrary() {
                 width={1200}
                 height={1000}
                 priority={true}
+              /> */}
+
+              <Image
+                src={item.img[2].url}
+                alt={`Gallery image ${index + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: "cover" }}
               />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
