@@ -13,7 +13,7 @@ const Home = ({ data }) => {
   return (
     <section
       id="home"
-      className={` w-full flex flex-col items-center justify-center pt-28    ${
+      className={` w-full flex flex-col items-center justify-center pt-20    ${
         darkTheme ? "bg-black" : "bg-white"
       }`}
     >
@@ -22,7 +22,7 @@ const Home = ({ data }) => {
           <Image
             src={data?.img[1].url}
             alt="home-img"
-            className="object-cover rounded-xl"
+            className="object-cover "
             layout="fill"
             objectFit="cover"
             quality={100}
@@ -31,15 +31,15 @@ const Home = ({ data }) => {
         <div className="absolute inset-0 bg-gray-800 bg-opacity-60 rounded-xl"></div>
         <div className="content absolute inset-0 flex items-center justify-center text-center flex-col gap-16">
           <span
-            className="font-bold text-transparent nunito sm:text-2xl md:text-[57px] lg:text-[67px] xl:text-[77px] 7"
+            className="font-bold text-transparent nunito sm:text-[47px] md:text-[57px] lg:text-[67px] xl:text-[77px] 7"
             style={{ WebkitTextStroke: ".1rem #ffa500" }}
           >
             {data?.name}
           </span>
-          <span className="font-bold text-white nunito sm:text-2xl md:text-[56px] lg:text-[76px] xl:text-[96px] ">
+          <span className="font-bold text-white nunito xs:text-[47px] sm:text-4xl md:text-[56px] lg:text-[76px] xl:text-[96px] ">
             {data?.title}
           </span>
-          <p className="w-1/3 font-normal text-white nunito leading-8">
+          <p className="sm:w-full md:w-full lg:w-1/2 xl:w-1/3 font-normal text-white nunito leading-8 px-5">
             {data?.desc}
           </p>
           <button className="w-40 h-10 bg-orange-400 text-white rounded-full">

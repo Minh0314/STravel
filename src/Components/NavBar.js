@@ -1,267 +1,289 @@
 "use client";
+
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
-import React, { use, useState } from "react";
-import { useRef } from "react";
+  faBars,
+  faTimes,
+  faSun,
+  faMoon,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link as ScrollLink } from "react-scroll";
+import { useSelector, useDispatch } from "react-redux";
+import { changeTheme } from "@/redux/slice/themeSlice";
 import Link from "next/link";
 
-import { Link as ScrollLink } from "react-scroll";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { useSelector, useDispatch } from "react-redux";
-import { changeTheme } from "../redux/slice/themeSlice";
 function NavBar() {
   const dispatch = useDispatch();
   const darkTheme = useSelector((state) => state.theme.darkTheme);
-  const preferentialRef = useRef(null);
-  const [click, setClick] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   const handleClick = () => {
-    setIsModalOpen(false);
-    setClick(!click);
-  };
-  const handleCloseMenu = () => {
-    setIsModalOpen(!isModalOpen);
+    setMenuOpen(false);
   };
 
-  function handleSetTheme() {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [menuOpen]);
+
+  const handleSetTheme = () => {
     dispatch(changeTheme());
-  }
-  return (
-    <header className="w-full sm:px-4 lg:px-24 py-5  bg-[rgba(51,51,51,0.75)] fixed z-20 ">
-      <div className="  relative sm:flex md:grid grid-cols-12 items-center  justify-between text-white">
-        <button
-          onClick={handleCloseMenu}
-          className="md:hidden  gird place-items-center"
-        >
-          {isModalOpen ? (
-            <i className="fa-solid fa-xmark"></i>
-          ) : (
-            <i className="fa-solid fa-bars"></i>
-          )}
-        </button>
+  };
 
-        <div className="col-span-2 logo text-2xl font-bold">
+  return (
+    <header className={`fixed w-full z-10 bg-[rgba(30,29,29,0.9)] text-white`}>
+      <div className="container mx-auto flex justify-between items-center p-4 ">
+        <div className="text-2xl font-bold">
           <span className="text-orange-400">S</span>TRAVEL
         </div>
+        <nav className="hidden sm:flex md:flex space-x-4 text-white">
+          <ScrollLink
+            activeClass="active"
+            to="/"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Trang chủ
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="preferential"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Đặt Lịch
+          </ScrollLink>
 
-        <div className=" hidden md:grid   col-span-8 nav-link">
-          <ul className="grid grid-cols-7 gap-3  md:text-lg lg:text-xl">
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="/"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Trang chủ
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="preferential"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Đặt Lịch
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="sale"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Ưu Đãi
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="service"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Dịch Vụ
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="library"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Thư Viện
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="feedback"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Đánh Giá
-              </ScrollLink>
-            </li>
-            <li className="cursor-pointer">
-              <ScrollLink
-                activeClass="active "
-                to="contact"
-                spy={true}
-                smooth={true}
-                duration={500}
-                onSetActive={handleClick}
-                offset={-70}
-              >
-                Liên Hệ
-              </ScrollLink>
-            </li>
-          </ul>
+          <ScrollLink
+            activeClass="active"
+            to="sale"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Ưu Đãi
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="service"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Dịch Vụ
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="library"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Thư Viện
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="feedback"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Đánh Giá
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`cursor-pointer ${
+              darkTheme ? "text-white" : ""
+            } hover:text-gray-900`}
+            onClick={handleClick}
+          >
+            Liên Hệ
+          </ScrollLink>
+        </nav>
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className={`focus:outline-none ${darkTheme ? "text-white" : ""}`}
+          >
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+          </button>
         </div>
-
-        <div className="col-span-2 group-btn flex items-center space-x-4 justify-end sm:right-0">
-          <button>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button onClick={handleSetTheme}>
-            {darkTheme ? (
-              <i className="fa-solid fa-sun"></i>
-            ) : (
-              <i className="fa-solid fa-moon"></i>
-            )}
-          </button>
-          <button>
-            <i className="fa-solid fa-user"></i>
+        <div className="hidden sm:flex md:flex items-center space-x-4">
+          <button
+            onClick={handleSetTheme}
+            className={`focus:outline-none ${darkTheme ? "text-white" : ""}`}
+          >
+            <FontAwesomeIcon icon={darkTheme ? faSun : faMoon} />
           </button>
         </div>
       </div>
-
-      <div
-        className={`nav-bar absolute top-full w-full left-0 bg-[rgba(51,51,51,0.75)] transition-all duration-450 ease-in-out transform ${
-          isModalOpen ? "scale-y-100" : "scale-y-0"
-        } origin-top`}
-      >
-        <ul className="grid grid-cols-1 gap-3 text-lg ">
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="/"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
+      {menuOpen && (
+        <nav
+          className={`md:hidden bg-white shadow-md ${
+            darkTheme ? "bg-gray-800" : "bg-white"
+          }`}
+        >
+          <ScrollLink
+            activeClass="active"
+            to="home"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Trang chủ
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="preferential"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Đặt Lịch
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="sale"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Ưu đãi
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="service"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Dịch Vụ
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="library"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Thư Viện
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="feedback"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Đánh Giá
+          </ScrollLink>
+          <ScrollLink
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-70}
+            className={`block px-4 py-2 ${
+              darkTheme ? "text-white" : ""
+            } hover:bg-gray-100`}
+            onClick={handleClick}
+          >
+            Liên Hệ
+          </ScrollLink>
+          <div className="flex justify-center py-2">
+            <button
+              onClick={handleSetTheme}
+              className={`focus:outline-none ${darkTheme ? "text-white" : ""}`}
             >
-              Trang chủ
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="preferential"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Đặt Lịch
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="sale"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Ưu Đãi
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="service"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Dịch Vụ
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="library"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Thư Viện
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="feedback"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Đánh Giá
-            </ScrollLink>
-          </li>
-          <li className="cursor-pointer bg-[rgba(21,21,21,0.75)] text-white py-2 px-2 ">
-            <ScrollLink
-              activeClass="active "
-              to="contact"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onSetActive={handleClick}
-              offset={-70}
-            >
-              Liên Hệ
-            </ScrollLink>
-          </li>
-        </ul>
-      </div>
+              <FontAwesomeIcon icon={darkTheme ? faSun : faMoon} />
+            </button>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

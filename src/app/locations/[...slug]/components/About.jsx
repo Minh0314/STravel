@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-
+import { Link as ScrollLink } from "react-scroll";
 function About() {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const listVid = useSelector((state) => state.logo.video);
@@ -38,7 +38,7 @@ function About() {
         darkTheme ? "bg-black" : "bg-white"
       }`}
     >
-      <div className="grid grid-cols-2 gap-4 w-10/12 justify-content-center">
+      <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 w-10/12 justify-content-center">
         <motion.div
           className="col-span-1 rounded-xl"
           initial="hidden"
@@ -88,6 +88,14 @@ function About() {
               nhất để đem lại một kỳ nghỉ tuyệt vời cho bạn cùng người thân
             </p>
             <button className=" px-8 py-3 bg-orange-400 text-white rounded  nunito">
+              <ScrollLink
+                activeClass="active "
+                to="home"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-200}
+              ></ScrollLink>
               Tìm Hiểu Về Stravel
             </button>
           </div>
