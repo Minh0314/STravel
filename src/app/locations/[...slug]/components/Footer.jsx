@@ -9,7 +9,6 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
-  const backgroundImageUrl = "@/public/hehe.jpeg";
   const [click, setClick] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleClick = () => {
@@ -19,14 +18,7 @@ const Footer = () => {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   return (
     <div>
-      <div
-        className={`banner text-center py-20 `}
-        style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className={`banner text-center py-20 `}>
         <h1
           className={`text-4xl font-bold ${
             darkTheme ? "text-white" : "text-black"

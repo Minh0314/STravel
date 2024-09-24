@@ -3,6 +3,14 @@ import Image from "next/image";
 const Home = ({ data }) => {
   const darkTheme = useSelector((state) => state.theme.darkTheme);
 
+  function formatCurrency(price) {
+    if (price) {
+      return price.toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
+    }
+  }
   return (
     <section
       id="home"
@@ -50,7 +58,7 @@ const Home = ({ data }) => {
         >
           <div>
             <span className="  sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl font-bold nunito text-orange-400">
-              Ưu đãi {data?.price} cho {data?.tour}
+              Ưu đãi {formatCurrency(data?.price)} cho {data?.tour}
             </span>
           </div>
           <div>
